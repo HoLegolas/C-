@@ -1,9 +1,11 @@
 #ifndef SALES_DATA_H
 #define SALES_DATA_H
 #include <string>
+#include "Window_mgr.h"
 
-struct Sales_data {
-	// friend declarations for nonmember Sales_data operations added
+class Sales_data {
+friend class Window_mgr;
+// friend declarations for nonmember Sales_data operations added
 friend Sales_data add(const Sales_data&, const Sales_data&);
 friend std::istream &read(std::istream&, Sales_data&);
 friend std::ostream &print(std::ostream&, const Sales_data&);
@@ -38,7 +40,11 @@ Sales_data add(const Sales_data &lhs, const Sales_data &rhs)
 	Sales_data sum = lhs;
 	sum.combine(rhs);
 	return sum;
+}Sales_data sum = lhs;
+	sum.combine(rhs);
+	return sum;
 }
+
 
 std::ostream &print(std::ostream &os, const Sales_data &item)
 {
